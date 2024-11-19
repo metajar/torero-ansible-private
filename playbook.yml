@@ -1,0 +1,12 @@
+---
+- name: Utilizando o módulo personalizado
+  hosts: localhost
+  tasks:
+    - name: Usar o módulo Hello Plugin
+      laurobmb.hello.hello_plugin:
+        name: "Lauro Gomes"
+      register: hello_result
+
+    - name: Exibir saudação
+      ansible.builtin.debug:
+        var: hello_result.msg
